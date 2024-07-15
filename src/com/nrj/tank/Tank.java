@@ -5,7 +5,7 @@ import java.awt.*;
 public class Tank {
     private  int x, y;
     private Dir dir = Dir.UP;
-    private static final int SPEED = 10;
+    private static final int SPEED = 5;
     private boolean moving = false;
 
     public Dir getDir() {
