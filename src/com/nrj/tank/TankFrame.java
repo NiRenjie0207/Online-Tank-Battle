@@ -10,7 +10,6 @@ public class TankFrame extends Frame {
 
     Tank myTank = new Tank(350, 250, Dir.UP);
 
-    Dir dir = Dir.UP;
     public TankFrame() {
         setSize(800, 600);
         setResizable(false);
