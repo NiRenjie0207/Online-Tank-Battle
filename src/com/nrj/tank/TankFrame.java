@@ -1,6 +1,8 @@
 package com.nrj.tank;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -13,6 +15,8 @@ public class TankFrame extends Frame {
         setVisible(true);
         setTitle("Tank War");
 
+        addKeyListener(new MyKeyListener());
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -23,6 +27,18 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        g.fillRect(350, 250, 50, 50);
+        g.fillRect(x, y, 50, 50);
+    }
+
+    class MyKeyListener extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            x += 10;
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            System.out.println("key released");
+        }
     }
 }
