@@ -12,7 +12,7 @@ import java.util.concurrent.ForkJoinPool;
 
 public class TankFrame extends Frame {
 
-    Tank myTank = new Tank(350, 250, Dir.UP, this);
+    Tank myTank = new Tank(350, 250, Dir.UP, this, Group.GOOD);
     List<Bullet> bullets = new ArrayList<>();
 
     // list of enemy tanks
@@ -69,7 +69,6 @@ public class TankFrame extends Frame {
         }
 
         for (int t = 0; t < tanks.size(); t++) {
-            System.out.println(tanks.size());
             tanks.get(t).paint(g);
         }
 
