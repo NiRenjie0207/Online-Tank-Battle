@@ -108,7 +108,7 @@ public class Tank {
                 break;
         }
 
-        if(random.nextInt(10) > 8) this.fire();
+        if(random.nextInt(10) > 8 & this.group == Group.BAD) this.fire();
     }
 
     public void fire() {
