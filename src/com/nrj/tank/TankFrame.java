@@ -8,12 +8,15 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ForkJoinPool;
 
 public class TankFrame extends Frame {
 
     Tank myTank = new Tank(350, 250, Dir.UP, this);
     List<Bullet> bullets = new ArrayList<>();
-//    Bullet b = new Bullet(350, 250, Dir.UP,);
+
+    // list of enemy tanks
+    List<Tank> tanks = new ArrayList<>();
 
     static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
 
@@ -52,10 +55,28 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
+
+        Color c = g.getColor();
+        g.setColor(Color.WHITE);
+        g.drawString("Num of Bullets:" + bullets.size(), 20, 60);
+        g.drawString("Num of Enemies:" + tanks.size(), 20, 80);
+        g.setColor(c);
+
         myTank.paint(g);
 
         for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).paint(g);
+        }
+
+        for (int t = 0; t < tanks.size(); t++) {
+            System.out.println(tanks.size());
+            tanks.get(t).paint(g);
+        }
+
+        for (int i = 0; i < bullets.size(); i++) {
+            for (int j = 0; j < tanks.size(); j++) {
+                bullets.get(i).collideWith(tanks.get(j));
+            }
         }
 
     }
