@@ -1,5 +1,6 @@
 package test;
 
+import com.nrj.tank.ResourceMgr;
 import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
@@ -16,7 +17,7 @@ class ImageTest{
     void test() {
 
         try {
-            BufferedImage image = ImageIO.read(ImageTest.class.getClassLoader().getResourceAsStream("images/bulletD.gif"));
+            BufferedImage image = ImageIO.read(ResourceMgr.class.getClassLoader().getResourceAsStream("Images/" + 1 + ".gif"));
             assertNotNull(image);
         } catch (IOException e) {
             throw new RuntimeException(e);

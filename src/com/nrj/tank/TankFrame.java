@@ -18,6 +18,8 @@ public class TankFrame extends Frame {
     // list of enemy tanks
     List<Tank> tanks = new ArrayList<>();
 
+    Explode e = new Explode(100, 100, this);
+
     static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
 
     public TankFrame() {
@@ -77,6 +79,8 @@ public class TankFrame extends Frame {
                 bullets.get(i).collideWith(tanks.get(j));
             }
         }
+
+        e.paint(g);
 
     }
 
